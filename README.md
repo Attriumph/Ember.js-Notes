@@ -17,3 +17,6 @@
 6. Promise：`.then()` always returns a new Promise, so it’s possible to chain Promises with precise control over how and where errors are handled.
 7. node_modules -- package.json: The package.json file maintains the list of current npm dependencies for the app. Any Ember CLI addons you install will also show up here. Packages listed in package.json are installed in the node_modules directory.
 8. If ember add-on is npm package, we need to use `npm install` to install the adds-on, which will install them in the node_modules directory, and makes an entry in package.json. Under such situation, we need to restart server.
+9. There is a place that we can define our API endpoints and our data. For json api, there is a the JSON-API specification to form the format of data
+10.  An Adapter: is an object that Ember Data uses to determine how we communicate with our backend. 
+11. Ember Data makes a GET request to endpoint, 不一定有真正的network request（from mirage）
