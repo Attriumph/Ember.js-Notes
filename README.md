@@ -20,3 +20,25 @@
 9. There is a place that we can define our API endpoints and our data. For json api, there is a the JSON-API specification to form the format of data
 10.  An Adapter: is an object that Ember Data uses to determine how we communicate with our backend. 
 11. Ember Data makes a GET request to endpoint, 不一定有真正的network request（from reading mirage add-on）
+
+## Ember Course Notes
+### 1. Objects,Classs, instance
+  - Always extend `Ember.Object` when defining classes(ember.object support obeservation of property value changes)
+  ```javascript
+  const Parentclass = Ember.Object.extend({
+    method1(para) {
+    }
+  });
+  ```
+  - When creating subclasses, call extend method on the parent class
+  - On a subclass, we can use `this._super()` to access the parent class properties and functions
+  ```javascript 
+  const ChildClass = ParentClass.extend({
+    method1(para) {
+      // just to demo that we can change para of kid 
+      // and then pass into parents method1
+      const para2 = para + "xxx";
+      this._super(para2);
+    }
+  });
+  ```
