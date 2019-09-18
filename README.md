@@ -23,11 +23,16 @@
 12. Ember Data: 
  - Ember comes with a data management library called Ember Data to help deal with persistent application data， a powerful set of tools for formatting requests, normalizing responses, and efficiently managing a local cache of data.
  - Ember Data requires you to define the structure of the data you wish to provide to your application by extending `DS.Model`.
-- `Ember Data Store service` is injected into all routes and their corresponding controllers in Ember. It is the main interface you use to interact with Ember Data. In this case, call the `findAll` function on the store and provide it with the name of correspoding model class(`rental` model here), so that Ember Data will attempt to fetch rentals from `/api/rentals`.
-- The whole workflow is:
+ - `Ember Data Store service` is injected into all routes and their corresponding controllers in Ember. It is the main interface you use to interact with Ember Data. In this case, call the `findAll` function on the store and provide it with the name of correspoding model class(`rental` model here), so that Ember Data will attempt to fetch rentals from `/api/rentals`.
+13. The whole workflow after typing URL is:
   Users type URL of `/rentals` --> router.js --> route handler(rental.js) execute `model` hook --> the hook calls `this.store.findAll('rental')` --> this fetch rentals from `/api/rentals`  --> Mirage return the json data without initing a real network request
-- Controllers contain actions and properties available to the template of its corresponding route
+14. Controllers:
+- contain actions and properties available to the template of its corresponding route
 - Ember will know that a controller with the name of rentals will apply to the route with the same name.
+15. Service:
+- A Service is an Ember object that lives for the duration of the application, and can be made available in different parts of your application.
+- To access a service, you can inject it in any container-resolved object such as a component or another service using the inject function from the @ember/service module. 
+
 ## Ember.js Notes from Course
 ### 1. Objects,Classs, instance
   - Always extend `Ember.Object` when defining classes(ember.object support obeservation of property value changes)
