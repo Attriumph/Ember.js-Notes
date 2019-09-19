@@ -1,4 +1,5 @@
 # Master Ember.js 
+  Ember.js is Model-View-ViewModel pattern. Model layer stores the state of application; view layer represents the UI of the application;ViewModel binds UI interface actions to Moeal layer behaviors.
 ## Notes from Ember Guides(Super-rental) 
 1. application.hbs: 'app/templates/application.hbs' is always on screen while the user has your application loaded.
 2. '{{outlet}}' means that any nested route will be rendered in that place.
