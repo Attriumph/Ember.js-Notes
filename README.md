@@ -32,10 +32,12 @@
 15. Service:
 - A Service is an Ember object that lives for the duration of the application, and can be made available in different parts of your application.
 - To access a service, you can inject it in any container-resolved object such as a component or another service using the inject function from the @ember/service module. 
+16. Nested route
+- Having a parent route means that any content on our parent route template will be present as we browse down through our child routes. We use `{{outlet}}` helper to indicate the place where active nested route will be rendered.
 
 ## Ember.js Notes from Course
 ### 1. Objects,Classs, instance
-  - Always extend `Ember.Object` when defining classes(ember.object support obeservation of property value changes)
+  - Always extend `Ember.Object` when defining classes(ember.object support **obeservation** of property value changes)
   ```javascript
   const Parentclass = Ember.Object.extend({
     method1(para) {
@@ -54,3 +56,33 @@
     }
   });
   ```
+  ### 2. Computed properties, Observers & bindings
+  - These are three ways to use obeservation in ember
+  - Computed property: Always use a computed property's `get()` or `set()` function to get the parasm; Observable features will not work without get()/set(); Only recomputed when the property is called
+  - Obeserver: embers observers is sychronous so that they are fired immediately when observe changes
+
+```javascript
+   const Surfer = Ember.object.extend({
+     name: null,
+     board: null,
+
+     nameAndBoard: Ember.computed('name', 'board', function(){
+       return `My name is ${this.get('name')} and I ride a ${this.get('board')}`;
+     });
+
+     nameChanged: Ember.observer('name', function(){
+       console.log(`name changed to: ${this.get('name')}`);
+     })
+
+     let kook = Sufer.creat({
+       name: 'Lawrence',
+       board: 'fomy',
+     });
+
+     kook.get('nameAndBoard');
+   })
+   ```
+  - bindings: 2-ways binding use `computed.alias()` and just run once when all code is running;and 1-one binding use `computed.oneWay()`
+    
+
+
