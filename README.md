@@ -9,15 +9,17 @@ Ember.js is Model-View-ViewModel pattern. Model layer stores the state of applic
 
 - '{{outlet}}' tells Ember where route handler will be rendered
 - '{{yield}}': we can regard it as a placeholder for any content supplied by the caller.
+  with hash helper, '{{yield hash(color = "red")}}' can pass values from inside component.
   Use yield if you want to use your components in a block form with dynamic content.
 
 3. About route:
    - Three parts:
-     i. entry in ember router  
+     i. entry in ember router.js  
      ii. js file -- route handler: sets up what should happen when that route is loaded
      iii. template
    - It need data to render the template, which can be done by model()
-   - model() method: can return whatever data you want to make available to the template. If you need to fetch data asynchronously, the model() method supports any library that uses **JavaScript Promises**； a hook is used to load the model on a route
+   - A route corresponds a MVC-like architacture; for the controller, we can use 'setupcontroller' to modify it.
+   - model() method: can return whatever data we want to make available to the template(via different adapters). If we need to fetch data asynchronously, the model() method supports any library that uses **JavaScript Promises**； a hook is used to load the model on a route
    - After getting the data, we need use template enginee(handelebar) to tell ember how to use these data
 4. About template:
 
@@ -35,6 +37,7 @@ Ember.js is Model-View-ViewModel pattern. Model layer stores the state of applic
 11. Ember Data makes a GET request to endpoint, 不一定有真正的 network request（from reading mirage add-on）
 12. Ember Data:
 
+- Acts as datastore, can retrive data from backend(we do not need to write ajax things)
 - Ember comes with a data management library called Ember Data to help deal with persistent application data， a powerful set of tools for formatting requests, normalizing responses, and efficiently managing a local cache of data.
 - Ember Data requires you to define the structure of the data you wish to provide to your application by extending `DS.Model`.
 - `Ember Data Store service` is injected into all routes and their corresponding controllers in Ember. It is the main interface you use to interact with Ember Data. In this case, call the `findAll` function on the store and provide it with the name of correspoding model class(`rental` model here), so that Ember Data will attempt to fetch rentals from `/api/rentals`.
