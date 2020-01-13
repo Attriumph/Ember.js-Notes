@@ -18,7 +18,7 @@ Ember.js is Model-View-ViewModel pattern. Model layer stores the state of applic
      ii. js file -- route handler: sets up what should happen when that route is loaded
      iii. template
    - It need data to render the template, which can be done by model()
-   - A route corresponds a MVC-like architacture; for the controller, we can use 'setupcontroller' to modify it.
+   - A route corresponds a controller; for the controller, we can use 'setupcontroller' to modify it.
    - model() method: can return whatever data we want to make available to the template(via different adapters). If we need to fetch data asynchronously, the model() method supports any library that uses **JavaScript Promises**； a hook is used to load the model on a route
    - After getting the data, we need use template enginee(handelebar) to tell ember how to use these data
 4. About template:
